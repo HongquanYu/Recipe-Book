@@ -1,0 +1,61 @@
+<div>
+    <div>
+      <div><p class="brand">Welcome to Recipe Book!</p></div> <br><br>
+      <div>
+        <div class="">
+          <!--
+          <form class="form" (ngSubmit)="onLoad(f)" #f="ngForm">
+            <div class="form-group">
+              <span>Recipe Keyword:</span>
+              <input
+                type="text" 
+                id="word" 
+                ngModel
+                class="form-control col-sm-3"
+                name="searchword">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+         -->
+        </div>
+      </div> <br><br>
+      <div>
+        <br>
+        <p *ngIf="!hasData && btnClicked"> You have reached your daily query limit, please upgrade your subscription or try another day. </p>
+        <p *ngIf="hasData && btnClicked"> Your search <em>{{ keyword }} </em>> has found {{ resultAmount }} recipes! </p>
+        <br>
+        
+        <div class="container">
+          <div *ngFor="let r of Recipes" class="card" style="width: 200px">
+            <img src=" ../../assets/pics/sushi.jpeg " alt=" {{ r.title }} " class="card-img" style="width: 100%">
+            <div class="card-body">
+              <h3 class="card-title"> {{ r.title }} </h3>
+              <a href="#" class="btn btn-primary"> Detail </a>
+            </div>
+          </div>
+        </div>
+        
+        <table *ngIf="hasData && btnClicked" class="table table-borderless table-striped">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Publisher</th>
+              <th>Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let r of Recipes">
+              <td> {{ r.title }} </td>
+              <td> {{ r.publisher }} </td>
+              <td> <img 
+                src= "{{ r.imgPath }}" 
+                alt= "{{ r.title }}"
+                class="img-responsive"
+                style="max-height: 50px;"></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
