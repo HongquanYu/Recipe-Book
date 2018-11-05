@@ -3,8 +3,8 @@
       <div><p class="brand">Welcome to Recipe Book!</p></div> <br><br>
       <div>
         <div class="">
-          <!--
-          <form class="form" (ngSubmit)="onLoad(f)" #f="ngForm">
+          
+          <form class="form" (ngSubmit)="this.dataService.onGetData(f)" #f="ngForm">
             <div class="form-group">
               <span>Recipe Keyword:</span>
               <input
@@ -16,7 +16,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-         -->
+         
         </div>
       </div> <br><br>
       <div>
@@ -25,7 +25,7 @@
         <p *ngIf="hasData && btnClicked"> Your search <em>{{ keyword }} </em>> has found {{ resultAmount }} recipes! </p>
         <br>
         
-        <div class="container">
+        <div>
           <div *ngFor="let r of Recipes" class="card" style="width: 200px">
             <img src=" ../../assets/pics/sushi.jpeg " alt=" {{ r.title }} " class="card-img" style="width: 100%">
             <div class="card-body">
@@ -35,7 +35,7 @@
           </div>
         </div>
         
-        <table *ngIf="hasData && btnClicked" class="table table-borderless table-striped">
+        <table class="table table-borderless table-striped">
           <thead>
             <tr>
               <th>Title</th>
@@ -51,7 +51,7 @@
                 src= "{{ r.imgPath }}" 
                 alt= "{{ r.title }}"
                 class="img-responsive"
-                style="max-height: 50px;"></td>
+                style="max-height: 30px;"></td>
             </tr>
           </tbody>
         </table>
